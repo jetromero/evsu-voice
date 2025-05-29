@@ -1,0 +1,19 @@
+{
+  "functions": {
+    "api/*.php": {
+      "runtime": "vercel-php@0.6.0"
+    },
+    "*.php": {
+      "runtime": "vercel-php@0.6.0"
+    }
+  },
+  "routes": [
+    { "src": "/(.*)", "dest": "/$1" }
+  ],
+  "env": {
+    "SUPABASE_DB_HOST": "@supabase_db_host",
+    "SUPABASE_DB_PASSWORD": "@supabase_db_password",
+    "SUPABASE_DB_NAME": "@supabase_db_name",
+    "SUPABASE_DB_USER": "@supabase_db_user"
+  }
+} 
