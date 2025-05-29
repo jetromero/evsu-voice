@@ -6,13 +6,33 @@ class DatabaseNative
 
     public function __construct()
     {
-        // Load Supabase configuration
-        $configFile = __DIR__ . '/supabase.php';
-        if (!file_exists($configFile)) {
-            throw new Exception("Configuration file not found: $configFile");
-        }
+        // Check if we're in production (Vercel sets NODE_ENV or check for environment variables)
+        $isProduction = isset($_ENV['VERCEL']) || getenv('VERCEL') ||
+            isset($_ENV['SUPABASE_DB_HOST']) || getenv('SUPABASE_DB_HOST');
 
-        $this->config = include $configFile;
+        if ($isProduction) {
+            // Use production config with environment variables
+            $productionConfigFile = __DIR__ . '/supabase_production.php';
+            if (file_exists($productionConfigFile)) {
+                $this->config = include $productionConfigFile;
+            } else {
+                throw new Exception("Production configuration file not found: $productionConfigFile");
+            }
+        } else {
+            // Use local development config
+            $configFile = __DIR__ . '/supabase.php';
+            if (!file_exists($configFile)) {
+                // Try to use production config as fallback
+                $productionConfigFile = __DIR__ . '/supabase_production.php';
+                if (file_exists($productionConfigFile)) {
+                    $this->config = include $productionConfigFile;
+                } else {
+                    throw new Exception("Configuration file not found. Please copy supabase.example.php to supabase.php and configure it.");
+                }
+            } else {
+                $this->config = include $configFile;
+            }
+        }
 
         // Validate configuration
         if (!is_array($this->config) || !isset($this->config['database'])) {

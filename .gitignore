@@ -1,5 +1,6 @@
 # Sensitive files
 config/supabase.php
+config/google-service-account.json
 .env
 .env.local
 
