@@ -1,8 +1,11 @@
 [phases.setup]
-nixPkgs = ['php81', 'php81Packages.composer']
+nixPkgs = ['php81', 'php81Packages.composer', 'php81Extensions.pgsql', 'php81Extensions.mbstring', 'php81Extensions.curl']
 
 [phases.build]
-cmds = ['echo "Build phase complete"']
+cmds = ['composer install --no-dev --optimize-autoloader']
+
+[variables]
+PHP_VERSION = '8.1'
 
 [start]
 cmd = 'php -S 0.0.0.0:$PORT -t .' 
