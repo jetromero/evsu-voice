@@ -1,0 +1,14 @@
+{
+    "require": {
+        "php": "^8.0",
+        "ext-pgsql": "*",
+        "ext-mbstring": "*",
+        "ext-curl": "*"
+    },
+    "require-dev": {},
+    "scripts": {
+        "post-install-cmd": [
+            "php -r \"copy('.env.example', '.env');\""
+        ]
+    }
+} 
