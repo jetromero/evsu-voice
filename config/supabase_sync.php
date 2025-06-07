@@ -2,8 +2,8 @@
 
 class SupabaseSync
 {
-    private $supabase_url = 'https://tlpllfglbtjxjwdvqxmc.supabase.co';
-    private $supabase_key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRscGxsZmdsYnRqeGp3ZHZxeG1jIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0ODUzNzQxNywiZXhwIjoyMDY0MTEzNDE3fQ.C0aXhl7u8dfTJPXvtu7i9KGJpfJKBWxfvAqnMYmBH2Q';
+    private $supabase_url = '';
+    private $supabase_key = '';
 
     /**
      * Sync password change to remote Supabase database
