@@ -1,0 +1,49 @@
+# Vendor dependencies
+vendor/
+
+# Configuration files with sensitive data
+config/google-service-account.json
+config/supabase.php
+
+# Backup directories
+backup_*/
+
+# Development files
+test*.php
+debug*.php
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+error_log
+
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# Cache directories
+cache/
+tmp/
+
+# Composer files (we'll keep composer.json but ignore composer.lock)
+composer.lock
+
+# Environment files
+.env
+.env.local
+.env.production 

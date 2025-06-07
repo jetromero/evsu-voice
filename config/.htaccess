@@ -1,0 +1,9 @@
+# Deny all access to config directory
+# This protects sensitive files like Google service account credentials
+deny from all
+
+# Alternative approach if the above doesn't work on your server:
+# <Files "*">
+#     Order allow,deny
+#     Deny from all
+# </Files> 
