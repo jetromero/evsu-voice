@@ -18,7 +18,7 @@ class GoogleSheetsConfig
     private static $credentialsPath = __DIR__ . '/google-service-account.json';
 
     // Default folder ID where sheets will be created (optional)
-    private static $defaultFolderId = '1gtiN997g7gRSlZqTh6jMWoaG1Qge235R'; // Set to a Google Drive folder ID if you want
+    private static $defaultFolderId = ''; // Set to a Google Drive folder ID if you want
 
     public static function getCredentialsPath()
     {
